@@ -1,0 +1,74 @@
+
+<!-- Resources -->
+<html>
+<meta http-equiv="refresh" content="43200" />
+
+<!--<script type= "text/javascript">
+     $(function(){
+       $.get("getJSON.php", function(data){
+           alert("hello");
+       });
+    });
+</script> -->
+
+<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+<script src="https://www.amcharts.com/lib/3/serial.js"></script>
+<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<link rel="stylesheet" href="main.css" />
+<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+
+  <body>
+
+<h1 style="font-size: 3em; margin: auto; margin-left: 30%; margin-top: 1%; margin-bottom: 1%" > PSX LAST 6 MONTHS DATA </h1>
+<!-- HTML -->
+
+<div id="mainGraphContainer">
+  <div id="mainHeader">MAU - Monthly</div>
+  <div id="MAU" class="chart"></div>
+</div>
+<div id="mainGraphContainer">
+  <div id="mainHeader">Sign Ups - Weekly </div>
+  <div id="SignUps" class="chart"></div>
+</div>
+<div id="mainGraphContainer" style="margin-top: 5%;">
+  <div id="mainHeader">QFM - Weekly</div>
+  <div id="QFM" class="chart"></div>
+</div>
+<div id="mainGraphContainer" style="margin-top: 5%;">
+  <div id="mainHeader">conversion - Weekly</div>
+  <div id="Conversion" class="chart"></div>
+</div>
+  
+</body>
+
+<script src="SingleGraph.js"></script>
+<script src="DoubleGraph.js"></script>
+
+<!-- Chart code -->
+<script>
+getMAUdata();
+var chart = AmCharts.makeChart("MAU", getchartProperty(generateChartDataMonthly(getMonthlyMAU())));
+var chart = AmCharts.makeChart("QFM", getchartProperty(generateChartData(getQFM())));
+var chart = AmCharts.makeChart("SignUps", getchartProperty(generateChartData(getSignUps())));
+var chart = AmCharts.makeChart("Conversion", getchartProperty(generateChartData(getConversion())));
+
+showBalloonAtCategory();
+zoomChart();
+
+
+chart.addListener("rendered", zoomChart);
+chart.addListener("init", showBalloonAtCategory);
+
+function showBalloonAtCategory(){
+  var firstDate = new Date("09/01/2017");
+   
+    chart.chartCursor.showCursorAt(firstDate);
+}
+
+function zoomChart() {
+    chart.zoomToIndexes(chart.dataProvider.length - 40, chart.dataProvider.length - 1);
+}
+</script>
+</html>
