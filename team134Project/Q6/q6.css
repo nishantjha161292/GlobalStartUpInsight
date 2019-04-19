@@ -1,0 +1,32 @@
+     
+body,html{
+    margin: 0;
+    padding: 0;
+    font-family: "Arial", sans-serif;
+    font-size: 11px;
+    text-align: center;
+  }
+
+.counties {
+  fill: blue;
+}
+
+.states {
+  fill: none;
+  stroke: #fff;
+  stroke-linejoin: round;
+}
+
+.tooltip{
+    position: absolute;
+    z-index: 10;
+    visibility: hidden;
+    background-color:rgba(102, 102, 255, 0.7);
+    font-size: 12px ;
+    text-align: left;
+    color: #fff;
+     border: 1px solid #CCC;
+    width: 140px;
+    height: 90px;
+}
+
