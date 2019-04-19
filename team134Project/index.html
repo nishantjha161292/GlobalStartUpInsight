@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Team135 - Global StartUp Insight</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet" type="text/css">
+    <!-- Theme CSS -->
+    <link href="./css/agency.css" rel="stylesheet">
+    <link  href="./sunburst/sequences.css" rel="stylesheet">
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+
+    <script src="http://d3js.org/topojson.v0.min.js"></script>
+    <script src="http://d3js.org/queue.v1.min.js"></script>
+
+
+    <link href="./build/nv.d3.css" rel="stylesheet" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js" charset="utf-8"></script>
+    <script src="./build/nv.d3.js"></script>
+
+       
+    
+    
+<style>
+      .background {
+        fill:#000000;
+      }
+      .countries {
+        fill:#cccccc;
+        stroke:#333333;
+        stroke-width:1;
+      }
+      .selected {
+        fill:yellow;
+      }
+      .d3-tip {
+      line-height: 1;
+      font-weight: bold;
+      padding: 12px;
+      background: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      border-radius: 2px;
+    }
+
+    </style>
+     <style type="text/css">
+            
+            .axis path,
+            .axis line {
+                fill: gray;
+                stroke: white;
+                shape-rendering: crispEdges;
+            }
+
+            .d3-tip {
+                  line-height: 1;
+                  font-weight: bold;
+                  padding: 12px;
+                  background: rgba(0, 0, 0, 0.8);
+                  color: #fff;
+                  border-radius: 2px;
+                }
+            .axis text {
+                font-family: sans-serif;
+                font-size: 11px;
+            }
+
+            .point {
+              fill: none;
+              stroke: #000;
+            }
+            .dot {
+                  fill-opacity: 1;
+                }
+        </style>
+<script>
+// var csv_data = [];
+
+// $(document).ready(function() {
+//      getDataFor();
+     
+//      //drawPie(csv_data);
+
+// });
+
+</script>
+
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">World Map</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                     <li>
+                        <a class="page-scroll" href="#contact">Predict</a>
+                    </li>
+                    
+                    <li>
+                        <a class="page-scroll" href="#portfolio" >Analytics Dashboard</a>
+                    </li>
+                   
+                    <li>
+                        <a class="page-scroll" href="#about">Sunburst</a>
+                    </li>
+                    
+                   
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+        
+         <div class="container">
+            <div class="intro-text">
+                <div style="margin-left: -15%" id="map">
+                  <svg></svg>
+                </div>
+            </div>
+                  <!-- <iframe style="height: 510px ;width: 1200px"src="worldMap/wmap3.html"></iframe> -->
+        </div> -->
+    </header>
+
+
+    <!-- Predictor Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Startup Success Predictor</h2>
+                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                </div>
+            </div>
+          <div id="widget">
+            <div class="form-group">
+              <label for="years-present">Years before first external funding:</label> <span id="selected-years"></span>
+              <input type="range" id="years-present" min="1" max="24" step="1" value="2">
+            </div>
+            
+            <div class="form-group">
+              <label for="funding-amount">Funding Received so far:</label> <span id="selected-amount"></span>
+              <input type="range" id="funding-amount" min="10000" max="100000000" step="10000" value="20000">
+            </div>
+
+            <div class="form-group">
+              <label for="startup-status">Startup Status:</label> <span id="selected-startup-status"></span>
+              <select id="startup-status" class="form-control">
+                <option value="development">Development</option>
+                <option value="alpha">Alpha</option>
+                <option value="beta" selected>Beta</option>
+                <option value="live">Live</option>
+                <option value="operating">Operating</option>
+                <option value="private">Private</option>
+                <option value="ipo">IPO</option>
+                <option value="acquired">Acquired</option>
+                <option value="closed">Closed</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="funding-round">Funding Round:</label> <span id="selected-round"></span>
+              <select id="funding-round" class="form-control">
+                <option value="Angel" selected>Angel</option>
+                <option value="Seed">Seed</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+              </select>
+            </div>
+
+
+              <h4>Percentage chance of Success</h4> 
+              <h1><span id="success-prediction"></span></h1>
+
+            <hr>
+
+          </div><!-- #widget -->
+
+        </div><!-- col-sm-10 -->
+      </div><!-- row -->
+    </div><!-- container -->
+    </section>
+
+
+    <!-- Portfolio Grid Section -->
+    <section id="portfolio" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Analytics Dashboard</h2>
+                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                </div>
+            </div>
+            <div class="row">
+                
+                <div style="margin-left: -5%" class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                         <!-- <iframe style="height: 400px ;width: 600px" src="charts/cumulativeLineChart.html"></iframe> -->
+
+<div id="chart1">
+    <svg style="height: 500px ;width: 500px"></svg>
+</div>
+
+                    </a>
+                    <div style="width: 600px" class="portfolio-caption">
+                        <h4 style="margin-left: ">Cummulative Line Chart</h4>
+                        <p class="text-muted">Start up founded per year </p>
+                    </div>
+                </div>
+
+
+
+                <div style="margin-left: 20%" class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                         <iframe style="height: 500px ;width: 500px" src="charts/scatterplot.html"></iframe>
+<!-- 
+<div id="chart2">
+    <svg style="height: 500px ;width: 500px"></svg>
+</div>
+ -->
+                    </a>
+                    <div  style="width: 600px" class="portfolio-caption">
+                        <h4>Scatter Plot</h4>
+                        <p class="text-muted">Number of Years Vs Funding Amount Vs Funding Round</p>
+                    </div>
+                </div>
+                
+                <div style="margin-left: -5%" class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                         <iframe style="height: 400px ;width: 600px" src="charts/multiBarHorizontalChart.html"></iframe>
+                    </a>
+                    <div  style="width: 600px" class="portfolio-caption">
+                        <h4>Escape</h4>
+                        <p class="text-muted">Website Design</p>
+                    </div>
+                </div>
+                <div style="margin-left: 20%" class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                         <iframe style="height: 400px ;width: 600px" src="charts/pieChart.html"></iframe>
+                    </a>
+                    <div  style="width: 400px" class="portfolio-caption">
+                        <h4>Dreams</h4>
+                        <p class="text-muted">Website Design</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container" style="width: 1200px">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Sunburst</h2>
+                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                </div>
+            </div>
+            <div id="main" style="margin-left: 5%">
+                <div id="above seq">
+                    <p class="hor">Country</p>
+                    <p class="hor">Lifetime</p>
+                    <p class="hor">Time to Fund</p>
+                    <p class="hor">Category</p>
+                </div>
+                <div id="sequence"></div>
+                <div id="chart">
+                    <div id="explanation" style="visibility: hidden;">
+                        <span id="percentage"></span><br/>
+                        of companies are in this subset.
+                    </div>
+                </div>
+            </div>
+            <div id="sidebar">
+                <input type="checkbox" id="togglelegend"> Legend<br/>
+                <div id="legend" style="visibility: hidden;"></div>
+            </div>
+            <!-- <div class="row">
+                <div class="col-lg-12">
+                     <iframe style="margin-left: 10%;height: 902px ;width: 1000px"src="sunburst/sunburst.html"></iframe>
+                </div>
+            </div> -->
+        </div>
+    </section>
+    
+
+    <!-- Portfolio Modals -->
+    <!-- Use the modals below to showcase details about your portfolio projects! -->
+
+    <!-- Portfolio Modal 2 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="modal-body">
+                                <h2>Project Heading</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                 <iframe style="height: 500px ;width: 500px"src="charts/cumulativeLineChart.html"></iframe>
+                                <p><a href="http://designmodo.com/startup/?u=787">Startup Framework</a> is a website builder for professionals. Startup Framework contains components and complex blocks (PSD+HTML Bootstrap themes and templates) which can easily be integrated into almost any design. All of these components are made in the same style, and can easily be integrated into projects, allowing you to create hundreds of solutions for your future projects.</p>
+                                <p>You can preview Startup Framework <a href="http://designmodo.com/startup/?u=787">here</a>.</p>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Modal 3 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2>Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <iframe style="height: 500px ;width: 800px"src="charts/scatterplot.html"></iframe>
+                              
+                                <p>Treehouse is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. This is bright and spacious design perfect for people or startup companies looking to showcase their apps or other projects.</p>
+                                <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/treehouse-free-psd-web-template/">FreebiesXpress.com</a>.</p>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Modal 5 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2>Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <iframe style="height: 500px ;width: 500px"src="charts/multiBarHorizontalChart.html"></iframe>
+                              
+                                <p>Escape is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Escape is a one page web template that was designed with agencies in mind. This template is ideal for those looking for a simple one page solution to describe your business and offer your services.</p>
+                                <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/escape-one-page-psd-web-template/">FreebiesXpress.com</a>.</p>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Modal 6 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2>Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <iframe style="height: 500px ;width: 500px"src="../team134/examples/pieChart.html"></iframe>
+                              
+                                <p>Dreams is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Dreams is a modern one page web template designed for almost any purpose. It’s a beautiful template that’s designed with the Bootstrap framework in mind.</p>
+                                <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/dreams-free-one-page-web-template/">FreebiesXpress.com</a>.</p>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script type="text/javascript"  src="./vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script type="text/javascript"  src="./vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script type="text/javascript"  src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" integrity="sha384-mE6eXfrb8jxl0rzJDBRanYqgBxtJ6Unn4/1F7q4xRRyIw7Vdg9jP4ycT7x1iVsgb" crossorigin="anonymous"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script type="text/javascript" src="./js/jqBootstrapValidation.js"></script>
+    <script type="text/javascript" src="js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script type="text/javascript" src="./js/agency.min.js"></script>
+     <script type="text/javascript" src="./js/charts.js"></script>
+      <script type="text/javascript" src="./js/services.js"></script>
+       <script type="text/javascript" src="./worldMap/worldmap.js"></script>
+       <script type="text/javascript" src="./charts/cumulativeLineChart.js"></script>
+       <script type="text/javascript" src="./charts/scatterplot.js"></script>
+
+
+
+
+        <script src="./js/jquery-1.11.1.min.js"></script>
+    <script src="js/jquery.predictsuccess.js"></script>
+    <script>
+      (function($){
+
+        $calculator = $('#widget').startupPredictor({
+          fundingAmount  : '$20,000.00',
+          yearsPresent     : '2',
+          startupStatus : 'beta'
+        });
+
+        $calculator.startupPredictor('update', {
+          fundingAmount       : 20000.00,
+          yearsPresent     : 2,
+          startupStatus : 'beta'
+        });
+
+
+      })(jQuery);
+    </script>
+    <script type="text/javascript" src="./sunburst/sequences.js"></script>
+
+
+</body>
+
+</html>
