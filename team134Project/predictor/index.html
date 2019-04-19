@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Startup Logistic Success Predictor</title>
+    <link rel="stylesheet" href="libs/bootstrap/bootstrap-3.3.4.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+
+          <h1 class="page-header">Startup Success Predictor</h1>
+
+          <div id="widget">
+            <div class="form-group">
+              <label for="years-present">Years before first external funding:</label> <span id="selected-years"></span>
+              <input type="range" id="years-present" min="1" max="24" step="1" value="2">
+            </div>
+			
+			<div class="form-group">
+              <label for="funding-amount">Funding Received so far:</label> <span id="selected-amount"></span>
+              <input type="range" id="funding-amount" min="10000" max="100000000" step="10000" value="20000">
+            </div>
+
+            <div class="form-group">
+              <label for="startup-status">Startup Status:</label> <span id="selected-startup-status"></span>
+              <select id="startup-status" class="form-control">
+                <option value="development">Development</option>
+                <option value="alpha">Alpha</option>
+                <option value="beta" selected>Beta</option>
+				<option value="live">Live</option>
+				<option value="operating">Operating</option>
+                <option value="private">Private</option>
+                <option value="ipo">IPO</option>
+				<option value="acquired">Acquired</option>
+                <option value="closed">Closed</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="funding-round">Funding Round:</label> <span id="selected-round"></span>
+              <select id="funding-round" class="form-control">
+                <option value="Angel" selected>Angel</option>
+                <option value="Seed">Seed</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+              </select>
+            </div>
+
+
+              <h4>Percentage chance of Success</h4> 
+			  <h1><span id="success-prediction"></span></h1>
+
+            <hr>
+
+          </div><!-- #widget -->
+
+        </div><!-- col-sm-10 -->
+      </div><!-- row -->
+    </div><!-- container -->
+    <script src="libs/jquery/jquery-1.11.1.min.js"></script>
+    <script src="js/jquery.predictsuccess.js"></script>
+    <script>
+      (function($){
+
+        $calculator = $('#widget').startupPredictor({
+          fundingAmount  : '$20,000.00',
+          yearsPresent     : '2',
+          startupStatus : 'beta'
+        });
+
+        $calculator.startupPredictor('update', {
+          fundingAmount       : 20000.00,
+          yearsPresent     : 2,
+          startupStatus : 'beta'
+        });
+
+
+      })(jQuery);
+    </script>
+  </body>
+</html>
