@@ -1,7 +1,6 @@
 
 function drawBar(rows,divId,country="ALL"){
 
-
 var map = d3.map();
 
 

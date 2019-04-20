@@ -1,4 +1,4 @@
-    function drawScatter(divId,country){
+    function drawScatter(divId,country="all"){
           var xdataset=[];
             var ydataset=[];
             var dataset=[];
