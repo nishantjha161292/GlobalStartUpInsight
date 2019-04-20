@@ -21,10 +21,6 @@ if(country !=="all"){
     });
 
  
-
- // console.log(map.size());
- // console.log(map.values());
- // console.log(map.keys());
     var keyset = [
         {key: "acquired"},
         {key: "closed"},

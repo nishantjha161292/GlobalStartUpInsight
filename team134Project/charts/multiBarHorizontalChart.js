@@ -1,5 +1,5 @@
 
-function drawBar(rows,divId,country){
+function drawBar(rows,divId,country="all"){
 
 
 var map = d3.map();
