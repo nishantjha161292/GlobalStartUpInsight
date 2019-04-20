@@ -258,6 +258,10 @@ function onchange() {
             <div class="row">
                 
                 <div style="margin-left: -5%" class="col-md-4 col-sm-6 portfolio-item">
+                    <div style="width: 600px" class="portfolio-caption"  align="center">
+                        <h4 style="margin-left: ">Cummulative Line Chart</h4>
+                        <p class="text-muted">Start up founded per year </p>
+                    </div>
                     <a href="#portfolioModal2" class="portfolio-link" onclick="drawline(csv_data,'chart1Full');"data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
@@ -271,15 +275,15 @@ function onchange() {
                             </div>
 
                     </a>
-                    <div style="width: 600px" class="portfolio-caption">
-                        <h4 style="margin-left: ">Cummulative Line Chart</h4>
-                        <p class="text-muted">Start up founded per year </p>
-                    </div>
                 </div>
 
 
 
                 <div style="margin-left: 20%" class="col-md-4 col-sm-6 portfolio-item">
+                    <div  style="width: 600px" class="portfolio-caption"  align="center">
+                        <h4>Scatter Plot</h4>
+                        <p class="text-muted">Number of Years Vs Funding Amount Vs Funding Round</p>
+                    </div>
                     <a href="#portfolioModal3" class="portfolio-link" onclick="drawScatter('chart2Full');" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
@@ -291,15 +295,15 @@ function onchange() {
                             <div id="chart2">
                                 <svg style="height: 500px ;width: 500px"></svg>
                             </div>
-
                     </a>
-                    <div  style="width: 600px" class="portfolio-caption">
-                        <h4>Scatter Plot</h4>
-                        <p class="text-muted">Number of Years Vs Funding Amount Vs Funding Round</p>
-                    </div>
+                    
                 </div>
                 
                 <div style="margin-left: -5%" class="col-md-4 col-sm-6 portfolio-item">
+                    <div  style="width: 600px" class="portfolio-caption"  align="center">
+                        <h4>Bar Chart</h4>
+                        <p class="text-muted">Industry wise Total count </p>
+                    </div>
                     <a href="#portfolioModal5" onclick="drawBar(csv_data,'chart3Full');" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
@@ -313,12 +317,13 @@ function onchange() {
                             </div>
 
                     </a>
-                    <div  style="width: 600px" class="portfolio-caption">
-                        <h4>Bar Chart</h4>
-                        <p class="text-muted">Industry wise Total count </p>
-                    </div>
+                    
                 </div>
                 <div style="margin-left: 20%" class="col-md-4 col-sm-6 portfolio-item">
+                    <div  style="width: 400px" class="portfolio-caption" align="center">
+                        <h4>Pie Chart</h4>
+                        <p class="text-muted">Status of startup</p>
+                    </div>
                     <a href="#portfolioModal6" onclick="drawPie(csv_data,'chart4Full');" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
@@ -330,10 +335,7 @@ function onchange() {
                             <svg style="height: 500px ;width: 500px"></svg>
                             </div>
                     </a>
-                    <div  style="width: 400px" class="portfolio-caption">
-                        <h4>Pie Chart</h4>
-                        <p class="text-muted">Status of startup</p>
-                    </div>
+                    
                 </div>
             </div>
         </div>

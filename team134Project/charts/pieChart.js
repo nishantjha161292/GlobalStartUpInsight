@@ -31,8 +31,8 @@ if(country !=="all"){
         {key: "operating"}
     ];
 
-    var height = 350;
-    var width = 350;
+    var height = 500;
+    var width = 500;
 
     nv.addGraph(function() {
         var chart = nv.models.pieChart()
