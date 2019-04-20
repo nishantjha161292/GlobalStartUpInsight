@@ -1,3 +1,4 @@
+    function drawScatter(divId,country){
           var xdataset=[];
             var ydataset=[];
             var dataset=[];
@@ -5,6 +6,15 @@
             var adataset=[];
             var cdataset=[];
             d3.csv("./php/scatter_plot_sheet.csv", function(data) {
+
+                  
+// if(country !=="all"){
+//         console.log(country);
+//         data = data.filter(function(d) { 
+//                 return d.country_code == country;
+//         });
+//     }
+
 
                 for (i=0;i<data.length;i++)
                 {
@@ -26,7 +36,7 @@
                 var h4= 2000 - margin.top - margin.bottom 
                 var h5= 2500 - margin.top - margin.bottom 
                 //Create SVG element
-                var svg = d3.select('#chart2 svg')
+                var svg = d3.select('#'+divId+' svg')
                             .attr("width", w + margin.left + margin.right+legend)
                             .attr("height", h + margin.top + margin.bottom/*+plot2+plot3+plot4+plot5*/)
                             .append('g')
@@ -191,3 +201,4 @@
             });
 
 });
+}

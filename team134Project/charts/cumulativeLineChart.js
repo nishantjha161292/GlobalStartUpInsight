@@ -1,4 +1,4 @@
-function drawline(data,divId){
+function drawline(data,divId,country="all"){
 
 
     const row = d => {
@@ -9,7 +9,7 @@ function drawline(data,divId){
                     return d;
                   };
 
-     console.log(data);
+     //console.log(country);
 
      //   d3.csv("./php/last_file.csv", function(error, data){
        
@@ -24,9 +24,12 @@ function drawline(data,divId){
             });
 
 
-        data1 = data.filter(function(d) { 
-            return d.country_code == "USA";
-        })
+if(country !=="all"){
+        console.log(country);
+        data = data.filter(function(d) { 
+                return d.country_code == country;
+        });
+    }
 
 
 
@@ -63,7 +66,7 @@ function drawline(data,divId){
                  .rollup(function(d) { 
                         return d.length; ;
                 })
-                 .entries(data1);
+                 .entries(data);
 
     dataf = []
     datafinal= []
