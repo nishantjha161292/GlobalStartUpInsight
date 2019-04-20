@@ -74,7 +74,8 @@ g.append("rect")
                 .on ('click',function(d){
                   //d3.select(this).classed("selected",true)
                   window.open("#dashboard","_self");
-                  drawCharts(d.id);
+                  drawCharts(d.id)
+                  d3.select('#selection').property('value', d.id);
                 })
                 .on('mouseover',function(d){
                 tooltip.html("Name: "+d.Name+"<br>Number of Startups: "+d.Count);
