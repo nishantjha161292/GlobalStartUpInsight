@@ -1,11 +1,11 @@
-function drawPie(rows,divId,country="all"){
+function drawPie(rows,divId,country="ALL"){
 var map = d3.map();
 
   //Iterate and convert long_data into wide_data
 //d3.csv('./php/last_file.csv',function(error,rows){
 
     
-if(country !=="all"){
+if(country !=="ALL"){
         console.log(country);
         rows = rows.filter(function(d) { 
                 return d.country_code == country;
