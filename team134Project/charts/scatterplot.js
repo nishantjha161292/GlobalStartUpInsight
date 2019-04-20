@@ -8,12 +8,12 @@
             d3.csv("./php/scatter_plot_sheet.csv", function(data) {
 
                   
-if(country !=="all"){
-        console.log(country);
-        data = data.filter(function(d) { 
-                return d.country_code == country;
-        });
-    }
+// if(country !=="all"){
+//         console.log(country);
+//         data = data.filter(function(d) { 
+//                 return d.country_code == country;
+//         });
+//     }
 
 
                 for (i=0;i<data.length;i++)

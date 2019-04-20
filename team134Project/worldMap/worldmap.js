@@ -74,7 +74,7 @@ g.append("rect")
                 .on ('click',function(d){
                   //d3.select(this).classed("selected",true)
                   window.open("#dashboard","_self");
-                  drawCharts("USA");
+                  drawCharts(d.id);
                 })
                 .on('mouseover',function(d){
                 tooltip.html("Name: "+d.Name+"<br>Number of Startups: "+d.Count);
