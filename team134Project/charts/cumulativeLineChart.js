@@ -1,4 +1,4 @@
-function drawline(data,divId,country="all"){
+function drawline(data,divId,country="ALL"){
 
 
     const row = d => {
@@ -24,7 +24,7 @@ function drawline(data,divId,country="all"){
             });
 
 
-if(country !=="all"){
+if(country !=="ALL"){
         console.log(country);
         data = data.filter(function(d) { 
                 return d.country_code == country;
@@ -120,11 +120,11 @@ data3.forEach(function(d){
             console.log('render complete: cumulative line with guide line');
         });
   chart.xAxis
-    .axisLabel('x')
+    .axisLabel('Years')
     //.tickFormat(d3.format('1'));
 
   chart.yAxis
-    .axisLabel('y')
+    .axisLabel('Number of startup founded')
     //.tickFormat(d3.format('1'));
 
 

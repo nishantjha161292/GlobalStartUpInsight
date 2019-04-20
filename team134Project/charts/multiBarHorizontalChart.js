@@ -1,6 +1,5 @@
 
-function drawBar(rows,divId,country="all"){
-
+function drawBar(rows,divId,country="ALL"){
 
 var map = d3.map();
 
@@ -10,7 +9,7 @@ var map = d3.map();
 
 
   
-if(country !=="all"){
+if(country !=="ALL"){
         console.log(country);
         rows = rows.filter(function(d) { 
                 return d.country_code == country;
