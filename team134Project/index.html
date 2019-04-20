@@ -222,11 +222,35 @@ $(document).ready(function() {
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Analytics Dashboard</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h3 class="section-subheading text-muted">All Chart showinf different startup data</h3>
                 </div>
             </div>
 
+<div class="selection" >
+    Country <select id = "selection" ></select> 
+    </div>
 
+    <script type="text/javascript">
+
+var datal = ["USA", "IND"];
+
+var select = d3.select('#selection')
+              .on('change',onchange);
+
+var options = select
+  .selectAll('option')
+  .data(datal).enter()
+  .append('option')
+    .text(function (d) { return d; });
+
+function onchange() {
+  selectValue = d3.select('#selection').property('value')
+  console.log(selectValue)
+    drawCharts(selectValue);
+
+};
+
+    </script>
 
 <!-- TODO country filter select (drop down) -->
 
