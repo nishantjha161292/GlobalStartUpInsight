@@ -1,5 +1,5 @@
 
-function drawBar(rows,divId){
+function drawBar(rows,divId,country){
 
 
 var map = d3.map();
@@ -9,13 +9,17 @@ var map = d3.map();
 //d3.csv('./php/last_file.csv',function(error,rows){
 
 
+  
+if(country !=="all"){
+        console.log(country);
+        rows = rows.filter(function(d) { 
+                return d.country_code == country;
+        });
+    }
 
-    var data1 = rows.filter(function(d) { 
-            return d.country_code == "USA";
-        })
 
 
-    data1.map((d,i) => {
+    rows.map((d,i) => {
     if(d.category_code != "NULL"){
       if (!map.get(d.category_code)) {
         map.set(d.category_code,0);

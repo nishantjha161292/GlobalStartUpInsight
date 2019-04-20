@@ -22,7 +22,12 @@
 // delete map[key1];
 // // or determine whether a key exists
 // key1 in map;
-
+function drawCharts(country){
+  drawline(csv_data,'chart1',country);
+  drawScatter('chart2', country);
+  drawBar(csv_data,'chart3',country);
+  drawPie(csv_data,'chart4',country);
+}
 
  
 function getDataFor(){

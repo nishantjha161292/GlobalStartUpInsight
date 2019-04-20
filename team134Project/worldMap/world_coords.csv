@@ -1,0 +1,140 @@
+id,Name,Count,latitude,longitude
+AFG,Afghanistan,7,33,65
+AGO,Angola,2,-12.5,18.5
+ALB,Albania,10,41,20
+ARE,United Arab Emirates,182,24,54
+ARG,Argentina,312,-34,-64
+ARM,Armenia,5,40,45
+AUS,Australia,1435,-27,133
+AUT,Austria,244,47.3333,13.3333
+AZE,Azerbaijan,7,40.5,47.5
+BDI,Burundi,2,-3.5,30
+BEL,Belgium,360,50.8333,4
+BEN,Benin,1,9.5,2.25
+BGD,Bangladesh,53,24,90
+BGR,Bulgaria,100,43,25
+BHS,"Bahamas, The",3,24.25,-76
+BIH,Bosnia and Herzegovina,6,44,18
+BLR,Belarus,30,53,28
+BLZ,Belize,3,17.25,-88.75
+BOL,Bolivia,3,-17,-65
+BRA,Brazil,558,-10,-55
+BRN,Brunei,1,4.5,114.6667
+BWA,Botswana,1,-22,24
+CAN,Canada,3630,60,-95
+CHE,Switzerland,514,47,8
+CHL,Chile,96,-30,-71
+CHN,China,732,35,105
+CIV,Cote d'Ivoire,1,8,-5
+CMR,Cameroon,6,6,12
+COL,Colombia,62,4,-72
+CRI,Costa Rica,27,10,-84
+CUB,Cuba,1,21.5,-80
+CYP,Cyprus,56,35,33
+CZE,Czech Republic,137,49.75,15.5
+DEU,Germany,1917,51,9
+DNK,Denmark,371,56,10
+DOM,Dominican Republic,13,19,-70.6667
+DZA,Algeria,1,28.0339,1.6596
+ECU,Ecuador,3,-2,-77.5
+EGY,Egypt,74,27,30
+ESP,Spain,1111,40,-4
+EST,Estonia,100,59,26
+ETH,Ethiopia,2,8,38
+FIN,Finland,571,64,26
+FRA,France,1629,46,2
+GBR,United Kingdom,7219,54,-2
+GEO,Georgia,7,42,43.5
+GHA,Ghana,31,8,-2
+GIN,Guinea,1,11,-10
+GRC,Greece,121,39,22
+GTM,Guatemala,7,15.5,-90.25
+HKG,Hong Kong,273,22.25,114.1667
+HND,Honduras,1,15,-86.5
+HRV,Croatia,53,45.1667,15.5
+HTI,Haiti,1,19,-72.4167
+HUN,Hungary,85,47,20
+IDN,Indonesia,127,-5,120
+IND,India,3860,20,77
+IRL,Ireland,1062,53,-8
+IRN,Iran,10,32,53
+IRQ,Iraq,1,33,44
+ISL,Iceland,54,65,-18
+ISR,Israel,1042,31.5,34.75
+ITA,Italy,622,42.8333,12.8333
+JAM,Jamaica,8,18.25,-77.5
+JOR,Jordan,37,31,36
+JPN,Japan,441,36,138
+KAZ,Kazakhstan,3,48,68
+KEN,Kenya,51,1,38
+KGZ,Kyrgyzstan,2,41,75
+KHM,Cambodia,2,13,105
+KOR,"Korea, South",182,37,127.5
+KWT,Kuwait,13,29.3375,47.6581
+LAO,Laos,2,18,105
+LBN,Lebanon,31,33.8333,35.8333
+LKA,Sri Lanka,29,7,81
+LSO,Lesotho,1,-29.5,28.5
+LTU,Lithuania,73,56,24
+LUX,Luxembourg,58,49.75,6.1667
+LVA,Latvia,57,57,25
+MAR,Morocco,17,32,-5
+MDA,Moldova,7,47,29
+MDG,Madagascar,1,-20,47
+MEX,Mexico,146,23,-102
+MKD,Macedonia,13,41.8333,22
+MMR,Burma,4,22,98
+MYS,Malaysia,142,2.5,112.5
+NAM,Namibia,1,-22,17
+NCL,New Caledonia,1,-21.5,165.5
+NER,Niger,1,16,8
+NGA,Nigeria,79,10,8
+NIC,Nicaragua,1,13,-85
+NLD,Netherlands,862,52.5,5.75
+NOR,Norway,227,62,10
+NPL,Nepal,26,28,84
+NZL,New Zealand,202,-41,174
+OMN,Oman,4,21,57
+PAK,Pakistan,140,30,70
+PAN,Panama,20,9,-80
+PER,Peru,24,-10,-76
+PHL,Philippines,112,13,122
+POL,Poland,296,52,20
+PRI,Puerto Rico,19,18.25,-66.5
+PRK,"Korea, North",3,40,127
+PRT,Portugal,200,39.5,-8
+PRY,Paraguay,3,-23,-58
+QAT,Qatar,10,25.5,51.25
+RUS,Russia,468,60,100
+RWA,Rwanda,1,-2,30
+SAU,Saudi Arabia,35,25,45
+SDN,Sudan,1,15,30
+SEN,Senegal,3,14,-14
+SGP,Singapore,522,1.3667,103.8
+SLE,Sierra Leone,2,8.5,-11.5
+SLV,El Salvador,3,13.8333,-88.9167
+SOM,Somalia,1,10,49
+SUR,Suriname,1,4,-56
+SVK,Slovakia,29,48.6667,19.5
+SVN,Slovenia,41,46,15
+SWE,Sweden,690,62,15
+SWZ,Swaziland,5,-26.5,31.5
+SYR,Syria,1,35,38
+THA,Thailand,83,15,100
+TJK,Tajikistan,1,39,71
+TTO,Trinidad and Tobago,3,11,-61
+TUN,Tunisia,9,34,9
+TUR,Turkey,356,39,35
+TWN,Taiwan,123,23.5,121
+TZA,Tanzania,1,-6,35
+UGA,Uganda,15,1,32
+UKR,Ukraine,200,49,32
+URY,Uruguay,40,-33,-56
+USA,United States,48779,38,-97
+UZB,Uzbekistan,3,41,64
+VEN,Venezuela,17,8,-66
+VNM,Vietnam,66,16,106
+YEM,Yemen,2,15,48
+ZAF,South Africa,270,-29,24
+ZMB,Zambia,2,-15,30
+ZWE,Zimbabwe,4,-20,30

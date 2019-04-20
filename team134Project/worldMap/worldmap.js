@@ -25,7 +25,7 @@ g.append("rect")
 
        queue()
           .defer(d3.json,"./worldMap/world.json")
-          .defer(d3.csv,"./worldMap/countriescoords.csv")
+          .defer(d3.csv,"./worldMap/world_coords.csv")
           .await(ready)
 
         function ready(error,topology,countriescoords){
@@ -55,7 +55,7 @@ g.append("rect")
                 .enter()
 
                 marker.append("circle")
-                .attr("r",15)//function(d){
+                .attr("r",5)//function(d){
                   //console.log(d.Count)
                  // return d.Count*;
                // })
@@ -73,10 +73,11 @@ g.append("rect")
                 })
                 .on ('click',function(d){
                   //d3.select(this).classed("selected",true)
-                  window.open("map1.html","_self");
+                  window.open("#dashboard","_self");
+                  drawCharts("USA");
                 })
                 .on('mouseover',function(d){
-                tooltip.html(d.Name); 
+                tooltip.html("Name: "+d.Name+"<br>Number of Startups: "+d.Count);
                 tooltip.attr("class","d3-tip");
                 return tooltip.style("visibility", "visible");
               })
@@ -84,20 +85,20 @@ g.append("rect")
               .on('mouseout',function(){return tooltip.style("visibility", "hidden");
               })
 
-              marker.append("text")
-                .attr("x",function(d){
-                  //console.log(d)
-                  var coords=projection([d.longitude,d.latitude])
-                  return coords[0];
-                })
-                .attr("y",function(d){
-                  var coords=projection([d.longitude,d.latitude])
-                  return coords[1];
-                })
-                .attr("dx",function(d){return -5})
-                .attr("dy",5)
-                .text(function(d){
-                  return d.Count;
-                });
+              // marker.append("text")
+              //   .attr("x",function(d){
+              //     //console.log(d)
+              //     var coords=projection([d.longitude,d.latitude])
+              //     return coords[0];
+              //   })
+              //   .attr("y",function(d){
+              //     var coords=projection([d.longitude,d.latitude])
+              //     return coords[1];
+              //   })
+              //   .attr("dx",function(d){return -5})
+              //   .attr("dy",5)
+              //   .text(function(d){
+              //     return d.Count;
+              //   });
         }
   
