@@ -8,12 +8,12 @@
             d3.csv("./php/scatter_plot_sheet.csv", function(data) {
 
                   
-// if(country !=="all"){
-//         console.log(country);
-//         data = data.filter(function(d) { 
-//                 return d.country_code == country;
-//         });
-//     }
+if(country !=="all"){
+        console.log(country);
+        data = data.filter(function(d) { 
+                return d.country_code == country;
+        });
+    }
 
 
                 for (i=0;i<data.length;i++)
@@ -27,10 +27,10 @@
                                         
                 }
 
-                legend=400
+                legend=50
                 var margin = { top: 50, right: 50, bottom: 50, left: 50 };
-                var h = 600 - margin.top - margin.bottom //-plot2-plot3-plot4-plot5
-                var w = 900 - margin.left - margin.right - legend
+                var h = 500 - margin.top - margin.bottom //-plot2-plot3-plot4-plot5
+                var w = 500 - margin.left - margin.right - legend
                 var h2= 1000 - margin.top - margin.bottom 
                 var h3= 1500 - margin.top - margin.bottom 
                 var h4= 2000 - margin.top - margin.bottom 
@@ -45,7 +45,7 @@
                 //Create Scale
                 var xscale = d3.scale.linear()
                         .domain([5,25])
-                        .range([0,w+margin.left+w]);
+                        .range([0,w]);
                 var yscale = d3.scale.linear()
                         .domain([200000000, 5700000000])
                         .range([h,0]);      
@@ -134,10 +134,10 @@
                       .on('mouseout',function(){return tooltip.style("visibility", "hidden");})
 
             // Plot Title   
-                svg.append("text")
-                .text("Number of Years Vs Funding Amount Vs Funding Round")
-                .attr("x",w/2-w/4).attr("y",-10)
-                .attr("font-size", "15px");
+                // svg.append("text")
+                // .text("Number of Years Vs Funding Amount Vs Funding Round")
+                // .attr("x",w/2-w/4).attr("y",-10)
+                // .attr("font-size", "15px");
 
                 //legend
                 var labels = ["USA" , "IND","CHN","DNK","BMU","NLD","RUS"];
