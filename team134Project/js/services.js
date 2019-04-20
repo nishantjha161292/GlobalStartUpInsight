@@ -28,7 +28,7 @@
 function getDataFor(){
   $.ajax({
         type: 'GET',
-        url: 'php/getGraphData.php',
+        url: './php/getGraphData.php',
         data: {
             // url: "",
             //action:"PUT",

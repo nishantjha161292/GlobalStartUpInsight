@@ -1,3 +1,5 @@
+function drawline(data,divId){
+
 
     const row = d => {
                       d.founded_at = +d.founded_at.substr(0,4);
@@ -7,14 +9,17 @@
                     return d;
                   };
 
-     
+     console.log(data);
 
-        d3.csv("./php/last_file.csv", function(error, data){
+     //   d3.csv("./php/last_file.csv", function(error, data){
        
         // create an empty object that nv is expecting
          
          data.forEach(function(d){
-                row(d);
+                if(d.founded_at !== undefined && d.founded_at.length > 4){
+                    row(d);
+                }
+                
                 //dataset.append(row(d));
             });
 
@@ -123,7 +128,7 @@ data3.forEach(function(d){
        // var datafinal = [{key: "count", values: dataf, color: "#ff7f0e"}]
 
 
-        d3.select('#chart1 svg')
+        d3.select('#'+divId +' svg')
             .datum(datafinal.slice(0,10))
             .call(chart);
 
@@ -138,5 +143,6 @@ data3.forEach(function(d){
         return chart;
     });
 
-});
+// });
+}
  

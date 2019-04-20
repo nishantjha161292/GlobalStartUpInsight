@@ -23,8 +23,7 @@
     <!-- Theme CSS -->
     <link href="./css/agency.css" rel="stylesheet">
     <link  href="./sunburst/sequences.css" rel="stylesheet">
-    <script src="http://d3js.org/d3.v3.min.js"></script>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
+    
 
     <script src="http://d3js.org/topojson.v0.min.js"></script>
     <script src="http://d3js.org/queue.v1.min.js"></script>
@@ -33,11 +32,19 @@
     <link href="./build/nv.d3.css" rel="stylesheet" type="text/css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js" charset="utf-8"></script>
     <script src="./build/nv.d3.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
 
        
     
     
 <style>
+
+    #chart3 {
+            margin: 0px;
+            padding: 0px;
+            height: 100%;
+            width: 100%;
+        }
       .background {
         fill:#000000;
       }
@@ -49,22 +56,14 @@
       .selected {
         fill:yellow;
       }
-      .d3-tip {
-      line-height: 1;
-      font-weight: bold;
-      padding: 12px;
-      background: rgba(0, 0, 0, 0.8);
-      color: #fff;
-      border-radius: 2px;
-    }
-
+      
     </style>
      <style type="text/css">
             
             .axis path,
             .axis line {
-                fill: gray;
-                stroke: white;
+                fill: black;
+                stroke: black;
                 shape-rendering: crispEdges;
             }
 
@@ -90,14 +89,14 @@
                 }
         </style>
 <script>
-// var csv_data = [];
+var csv_data = [];
 
-// $(document).ready(function() {
-//      getDataFor();
+$(document).ready(function() {
+     getDataFor();
      
-//      //drawPie(csv_data);
+     //drawPie(csv_data);
 
-// });
+});
 
 </script>
 
@@ -127,7 +126,7 @@
                     </li>
                     
                     <li>
-                        <a class="page-scroll" href="#portfolio" >Analytics Dashboard</a>
+                        <a class="page-scroll" href="#portfolio" onclick="drawline(csv_data,'chart1');drawBar(csv_data,'chart3');drawPie(csv_data,'chart4');">Analytics Dashboard</a>
                     </li>
                    
                     <li>
@@ -228,7 +227,7 @@
             <div class="row">
                 
                 <div style="margin-left: -5%" class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+                    <a href="#portfolioModal2" class="portfolio-link" onclick="drawline(csv_data,'chart1Full');"data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
                                 <i class="fa fa-plus fa-3x"></i>
@@ -256,12 +255,12 @@
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                         <iframe style="height: 500px ;width: 500px" src="charts/scatterplot.html"></iframe>
-<!-- 
+                         <!-- <iframe style="height: 500px ;width: 500px" src="charts/scatterplot.html"></iframe> -->
+
 <div id="chart2">
     <svg style="height: 500px ;width: 500px"></svg>
 </div>
- -->
+
                     </a>
                     <div  style="width: 600px" class="portfolio-caption">
                         <h4>Scatter Plot</h4>
@@ -270,13 +269,18 @@
                 </div>
                 
                 <div style="margin-left: -5%" class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
+                    <a href="#portfolioModal5" onclick="drawBar(csv_data,'chart3Full');" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                         <iframe style="height: 400px ;width: 600px" src="charts/multiBarHorizontalChart.html"></iframe>
+                         <!-- <iframe style="height: 400px ;width: 600px" src="charts/multiBarHorizontalChart.html"></iframe> -->
+
+<div id="chart3" class='with-3d-shadow with-transitions'>
+    <svg style="height: 500px ;width: 500px"></svg>
+</div>
+
                     </a>
                     <div  style="width: 600px" class="portfolio-caption">
                         <h4>Escape</h4>
@@ -284,13 +288,16 @@
                     </div>
                 </div>
                 <div style="margin-left: 20%" class="col-md-4 col-sm-6 portfolio-item">
-                    <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
+                    <a href="#portfolioModal6" onclick="drawPie(csv_data,'chart4Full');" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                         <iframe style="height: 400px ;width: 600px" src="charts/pieChart.html"></iframe>
+                         <!-- <iframe style="height: 400px ;width: 600px" src="charts/pieChart.html"></iframe> -->
+<div id="chart4" class='with-3d-shadow with-transitions'>
+<svg style="height: 500px ;width: 500px"></svg>
+</div>
                     </a>
                     <div  style="width: 400px" class="portfolio-caption">
                         <h4>Dreams</h4>
@@ -357,7 +364,10 @@
                             <div class="modal-body">
                                 <h2>Project Heading</h2>
                                 <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                 <iframe style="height: 500px ;width: 500px"src="charts/cumulativeLineChart.html"></iframe>
+                                 <!-- <iframe style="height: 500px ;width: 500px"src="charts/cumulativeLineChart.html"></iframe> -->
+<div id="chart1Full">
+    <svg style="height: 500px ;width: 500px"></svg>
+</div>
                                 <p><a href="http://designmodo.com/startup/?u=787">Startup Framework</a> is a website builder for professionals. Startup Framework contains components and complex blocks (PSD+HTML Bootstrap themes and templates) which can easily be integrated into almost any design. All of these components are made in the same style, and can easily be integrated into projects, allowing you to create hundreds of solutions for your future projects.</p>
                                 <p>You can preview Startup Framework <a href="http://designmodo.com/startup/?u=787">here</a>.</p>
                                 <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
@@ -416,8 +426,10 @@
                                 <!-- Project Details Go Here -->
                                 <h2>Project Name</h2>
                                 <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                <iframe style="height: 500px ;width: 500px"src="charts/multiBarHorizontalChart.html"></iframe>
-                              
+                                <!-- <iframe style="height: 500px ;width: 500px"src="charts/multiBarHorizontalChart.html"></iframe> -->
+<div id="chart3Full">
+    <svg style="height: 500px ;width: 500px"></svg>
+</div>
                                 <p>Escape is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Escape is a one page web template that was designed with agencies in mind. This template is ideal for those looking for a simple one page solution to describe your business and offer your services.</p>
                                 <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/escape-one-page-psd-web-template/">FreebiesXpress.com</a>.</p>
                                 <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
@@ -446,8 +458,10 @@
                                 <!-- Project Details Go Here -->
                                 <h2>Project Name</h2>
                                 <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                <iframe style="height: 500px ;width: 500px"src="../team134/examples/pieChart.html"></iframe>
-                              
+                                <!-- <iframe style="height: 500px ;width: 500px"src="../team134/examples/pieChart.html"></iframe> -->
+    <div id="chart4Full">
+    <svg style="height: 500px ;width: 500px"></svg>
+</div>
                                 <p>Dreams is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Dreams is a modern one page web template designed for almost any purpose. It’s a beautiful template that’s designed with the Bootstrap framework in mind.</p>
                                 <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/dreams-free-one-page-web-template/">FreebiesXpress.com</a>.</p>
                                 <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
@@ -470,7 +484,6 @@
 
     <!-- Contact Form JavaScript -->
     <script type="text/javascript" src="./js/jqBootstrapValidation.js"></script>
-    <script type="text/javascript" src="js/contact_me.js"></script>
 
     <!-- Theme JavaScript -->
     <script type="text/javascript" src="./js/agency.min.js"></script>
@@ -479,6 +492,8 @@
        <script type="text/javascript" src="./worldMap/worldmap.js"></script>
        <script type="text/javascript" src="./charts/cumulativeLineChart.js"></script>
        <script type="text/javascript" src="./charts/scatterplot.js"></script>
+        <script type="text/javascript" src="./charts/multiBarHorizontalChart.js"></script>
+        <script type="text/javascript" src="./charts/pieChart.js"></script>
 
 
 
